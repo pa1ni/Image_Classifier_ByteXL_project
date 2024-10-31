@@ -154,7 +154,7 @@ root.mainloop()
 <!-- CONTACT -->
 ## Contact
 
-Mudrik Kaushik - [Medium](https://pavanireddy.medium.com/) - [Gmail](https://pavanihannah03@gmail.com/)
+Pavani Reddy - [Medium](https://pavanireddy.medium.com/) - [Gmail](https://pavanihannah03@gmail.com/)
 
 Prototype Link: [Click Here!](https://github.com/pa1ni/Image-Classifier)
 
