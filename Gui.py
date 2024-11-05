@@ -22,4 +22,30 @@ def open_img():
     panel = Label(root, image = img) 
     panel.image = img
     panel.place(x=0,y=200)
+def openfilename(): 
+    filename = filedialog.askopenfilename(title ='"pen')
+    return filename
+     
+ 
+def prediction():
+    y= open_img.z
+    prediction = ImageClassification()
+    prediction.setModelTypeAsResNet50()
+    prediction.setModelPath("resnet50_imagenet_tf.2.0.h5")
+    prediction.loadModel()
+    predictions, percentage_probabilities = prediction.classifyImage(y, result_count=10)
+    for index in range(len(predictions)):
+      pred = predictions[index] , " : " , percentage_probabilities[index]
+      print(pred)
+
+btn1 = Button(root, text ='𝕾𝖊𝖆𝖗𝖈𝖍', command = open_img)
+btn1.place(x=450,y=100) 
+lb3 = Label(text= 'pred')
+lb3.place(x=500,y=100)
+lb3.pack()
+btn2 = Button(root, text ='𝖆𝖓𝖆𝖑𝖞𝖟𝖊', command = prediction)
+btn2.place(x=560,y=100) 
+
+
+root.mainloop()
 
