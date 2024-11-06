@@ -1,0 +1,40 @@
+import streamlit as st
+import tensorflow as tf
+from PIL import Image
+import numpy as np
+
+# Load the pre-trained model
+model = tf.keras.models.load_model('your_model.h5')  # Replace with your model path
+
+# Define class names
+class_names = ['class1', 'class2', 'class3', ...]  # Replace with your class names
+
+def predict_image(image_data, model):
+    image = Image.open(image_data)
+    image = image.resize((224, 224))  # Adjust image size if needed
+    image_array = np.array(image) / 255.0
+    image_array = np.expand_dims(image_array, axis=0)
+
+    predictions = model.predict(image_array)
+    predicted_class_index = np.argmax(predictions[0])
+    predicted_class_name = class_names[predicted_class_index]
+    prediction_probability = np.max(predictions[0])
+
+    return predicted_class_name, prediction_probability
+
+def main():
+    st.title("Image Classifier App")
+
+    uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png"])
+
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Uploaded Image', use_column_width=True)
+
+        if st.button("Predict"):
+            predicted_class, probability = predict_image(uploaded_file, model)
+            st.write(f"Predicted Class: {predicted_class}")
+            st.write(f"Probability: {probability:.2f}")
+
+if __name__ == '__main__':
+    main()
