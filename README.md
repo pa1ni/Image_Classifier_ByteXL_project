@@ -156,7 +156,6 @@ root.mainloop()
 
 Pavani Reddy - [Medium](https://pavanireddy.medium.com/) - [Gmail](https://pavanihannah03@gmail.com/)
 
-Prototype Link: [Click Here!](https://github.com/pa1ni/Image-Classifier)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
